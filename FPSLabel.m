@@ -33,7 +33,7 @@
     FPSLabel *label = [[FPSLabel alloc] initWithFrame:leftDownCorner];
     label.backgroundColor = [UIColor blackColor];
     label.textColor = [UIColor redColor];
-    label.font = FONT_14;
+    label.font = [UIFont systemFontOfSize:14.f];
     [window addSubview:label];
     [window bringSubviewToFront:label];
     //#endif

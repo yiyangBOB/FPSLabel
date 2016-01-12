@@ -13,8 +13,7 @@
 		BEFC83601C44D28D00E6B0E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BEFC835F1C44D28D00E6B0E5 /* Assets.xcassets */; };
 		BEFC83631C44D28D00E6B0E5 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BEFC83611C44D28D00E6B0E5 /* LaunchScreen.storyboard */; };
 		BEFC836E1C44D28D00E6B0E5 /* FPSLabelTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFC836D1C44D28D00E6B0E5 /* FPSLabelTestTests.m */; };
-		BEFC83841C44D52300E6B0E5 /* FPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFC83821C44D52300E6B0E5 /* FPSLabel.m */; };
-		BEFC83851C44D52300E6B0E5 /* README.md in Sources */ = {isa = PBXBuildFile; fileRef = BEFC83831C44D52300E6B0E5 /* README.md */; };
+		BEFC83891C44D6D300E6B0E5 /* FPSLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = BEFC83881C44D6D300E6B0E5 /* FPSLabel.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,9 +39,8 @@
 		BEFC83691C44D28D00E6B0E5 /* FPSLabelTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = FPSLabelTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BEFC836D1C44D28D00E6B0E5 /* FPSLabelTestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FPSLabelTestTests.m; sourceTree = "<group>"; };
 		BEFC836F1C44D28D00E6B0E5 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		BEFC83811C44D52300E6B0E5 /* FPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSLabel.h; sourceTree = "<group>"; };
-		BEFC83821C44D52300E6B0E5 /* FPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSLabel.m; sourceTree = "<group>"; };
-		BEFC83831C44D52300E6B0E5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		BEFC83871C44D6D300E6B0E5 /* FPSLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FPSLabel.h; sourceTree = "<group>"; };
+		BEFC83881C44D6D300E6B0E5 /* FPSLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FPSLabel.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,7 +82,7 @@
 		BEFC83521C44D28D00E6B0E5 /* FPSLabelTest */ = {
 			isa = PBXGroup;
 			children = (
-				BEFC83801C44D52300E6B0E5 /* Classes */,
+				BEFC83861C44D6D300E6B0E5 /* View */,
 				BEFC83561C44D28D00E6B0E5 /* AppDelegate.h */,
 				BEFC83571C44D28D00E6B0E5 /* AppDelegate.m */,
 				BEFC83591C44D28D00E6B0E5 /* ViewController.h */,
@@ -114,14 +112,13 @@
 			path = FPSLabelTestTests;
 			sourceTree = "<group>";
 		};
-		BEFC83801C44D52300E6B0E5 /* Classes */ = {
+		BEFC83861C44D6D300E6B0E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				BEFC83811C44D52300E6B0E5 /* FPSLabel.h */,
-				BEFC83821C44D52300E6B0E5 /* FPSLabel.m */,
-				BEFC83831C44D52300E6B0E5 /* README.md */,
+				BEFC83871C44D6D300E6B0E5 /* FPSLabel.h */,
+				BEFC83881C44D6D300E6B0E5 /* FPSLabel.m */,
 			);
-			path = Classes;
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -227,8 +224,7 @@
 			files = (
 				BEFC835B1C44D28D00E6B0E5 /* ViewController.m in Sources */,
 				BEFC83581C44D28D00E6B0E5 /* AppDelegate.m in Sources */,
-				BEFC83851C44D52300E6B0E5 /* README.md in Sources */,
-				BEFC83841C44D52300E6B0E5 /* FPSLabel.m in Sources */,
+				BEFC83891C44D6D300E6B0E5 /* FPSLabel.m in Sources */,
 				BEFC83551C44D28D00E6B0E5 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

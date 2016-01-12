@@ -32,7 +32,6 @@
     CGRect leftDownCorner = CGRectMake(220,0,55, 20);
     FPSLabel *label = [[FPSLabel alloc] initWithFrame:leftDownCorner];
     label.backgroundColor = [UIColor blackColor];
-    label.textColor = [UIColor redColor];
     label.font = [UIFont systemFontOfSize:14.f];
     [window addSubview:label];
     [window bringSubviewToFront:label];
@@ -96,8 +95,18 @@
     avgDT /= _historyDTLength;
     
     CFTimeInterval minFPS = roundf(1.0f /(float)maxDT);
-    //CFTimeInterval avgFPS = roundf(1.0f /(float)avgDT);
-    NSString *text = [NSString stringWithFormat:@"%.fFPS", minFPS];
+    CFTimeInterval avgFPS = roundf(1.0f /(float)avgDT);
+    UIColor *fpsColor;
+    if (avgFPS > 40.f) {
+        fpsColor = [UIColor greenColor];
+    }
+    else if (avgFPS > 20.f) {
+        fpsColor = [UIColor yellowColor];
+    }
+    else {
+        fpsColor = [UIColor redColor];
+    }
+    NSString *text = [NSString stringWithFormat:@"%.fFPS", avgFPS];
     self.text = text;
     _lastUIUpdateTime = _displayLinkTickTimeLast;
 }

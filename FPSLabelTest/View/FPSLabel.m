@@ -28,15 +28,12 @@
 }
 
 + (void)showInWindow:(UIWindow *)window {
-    //#if DEBUG
     CGRect leftDownCorner = CGRectMake(220,0,55, 20);
     FPSLabel *label = [[FPSLabel alloc] initWithFrame:leftDownCorner];
     label.backgroundColor = [UIColor blackColor];
-    label.textColor = [UIColor redColor];
     label.font = [UIFont systemFontOfSize:14.f];
     [window addSubview:label];
     [window bringSubviewToFront:label];
-    //#endif
 }
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -57,7 +54,7 @@
         _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkTick)];
         [_displayLink setPaused:YES];
         [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-        [self setDesiredChartUpdateInterval:1.0f /60.0f];
+        [self setDesiredChartUpdateInterval:10.0f /60.0f];
     }
     return self;
 }
@@ -94,11 +91,21 @@
         avgDT += _historyDT[i];
     }
     avgDT /= _historyDTLength;
-    
+    UIColor *fpsColor;
     CFTimeInterval minFPS = roundf(1.0f /(float)maxDT);
-    //CFTimeInterval avgFPS = roundf(1.0f /(float)avgDT);
+    CFTimeInterval avgFPS = roundf(1.0f /(float)avgDT);
+    if (avgFPS > 40.f) {
+        fpsColor = [UIColor greenColor];
+    }
+    else if (avgFPS > 20.f) {
+        fpsColor = [UIColor yellowColor];
+    }
+    else {
+        fpsColor = [UIColor redColor];
+    }
     NSString *text = [NSString stringWithFormat:@"%.fFPS", minFPS];
     self.text = text;
+    self.textColor = fpsColor;
     _lastUIUpdateTime = _displayLinkTickTimeLast;
 }
 

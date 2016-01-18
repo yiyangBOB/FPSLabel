@@ -9,8 +9,8 @@
 #import "FPSLabel.h"
 #import <QuartzCore/QuartzCore.h>
 
-
-@implementation FPSLabel {
+@interface FPSLabel ()
+{
     CADisplayLink          *_displayLink;
     UILabel                *_displayLabel;
     NSUInteger             _maxHistoryDTLength;
@@ -20,6 +20,9 @@
     CFTimeInterval         *_historyDT;
     UIWindow               *_window;
 }
+@end
+
+@implementation FPSLabel
 
 - (void)dealloc {
     [_displayLink setPaused:YES];
@@ -28,8 +31,8 @@
 }
 
 + (void)showInWindow:(UIWindow *)window {
-    CGRect leftDownCorner = CGRectMake(220,0,55, 20);
-    FPSLabel *label = [[FPSLabel alloc] initWithFrame:leftDownCorner];
+    CGRect labelFrame = CGRectMake([[UIScreen mainScreen] bounds].size.width - 100,0,55, 20);
+    FPSLabel *label = [[FPSLabel alloc] initWithFrame:labelFrame];
     label.backgroundColor = [UIColor blackColor];
     label.font = [UIFont systemFontOfSize:14.f];
     [window addSubview:label];
@@ -54,7 +57,7 @@
         _displayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(displayLinkTick)];
         [_displayLink setPaused:YES];
         [_displayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSRunLoopCommonModes];
-        [self setDesiredChartUpdateInterval:10.0f /60.0f];
+        [self setDesiredChartUpdateInterval:8.0f /60.0f];
     }
     return self;
 }
@@ -92,7 +95,7 @@
     }
     avgDT /= _historyDTLength;
     UIColor *fpsColor;
-    CFTimeInterval minFPS = roundf(1.0f /(float)maxDT);
+//    CFTimeInterval minFPS = roundf(1.0f /(float)maxDT);
     CFTimeInterval avgFPS = roundf(1.0f /(float)avgDT);
     if (avgFPS > 40.f) {
         fpsColor = [UIColor greenColor];
@@ -103,7 +106,7 @@
     else {
         fpsColor = [UIColor redColor];
     }
-    NSString *text = [NSString stringWithFormat:@"%.fFPS", minFPS];
+    NSString *text = [NSString stringWithFormat:@"%.fFPS", avgFPS];
     self.text = text;
     self.textColor = fpsColor;
     _lastUIUpdateTime = _displayLinkTickTimeLast;
